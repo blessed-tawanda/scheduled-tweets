@@ -12,9 +12,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-
-  <body class="container">
+  <body>
     <%= render partial: "shared/navbar" %>
-    <%= yield %>
+    <div class="container">
+      <%= render partial: "shared/flash"%>
+      <%= yield %>
+    </div>
   </body>
 </html>
