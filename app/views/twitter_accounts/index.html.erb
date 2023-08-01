@@ -1,0 +1,19 @@
+<div>
+  <div class="d-flex justify-content-between mt-2">
+    <h1>Twitter Accounts</h1>
+    <div class="mt-2">
+      <%= button_to "Connect A Twitter Account", "/auth/twitter", method: :post, data: {turbo: "false"},class: "btn btn-primary"%>
+    </div>
+  </div>
+  <div class="mt-4">
+    <% @twitter_accounts.each do |twitter_account| %>
+      <div class="d-flex mt-2 align-items-center ">
+        <div class="mx-4">
+          <%= image_tag twitter_account.image, class: "rounded-circle mr-4"%>
+          <%= link_to "@#{twitter_account.username}", "https://twitter.com/#{twitter_account.username}", target: :_blank%>
+        </div>
+        <%= link_to "Disconnect", twitter_account, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "btn btn-outline-danger"%>
+      </div>
+    <% end %>
+  </div>
+</div>

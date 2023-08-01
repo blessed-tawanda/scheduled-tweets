@@ -1,0 +1,28 @@
+<div class="mb-2 border p-4 rounded">
+
+  <div>
+    <div class="mb-2">
+      <%= image_tag tweet.twitter_account.image, class: "rounded-circle mr-4"%>
+      <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank%>
+    </div>
+    <div class="p-2 border rounded mb-2">
+      <%= tweet.body %>
+    </div>
+     <% if tweet.published? %>
+      <span class="mt-2">
+        Published At: <%= l tweet.publish_at, format: :short %>
+      </span>
+      <% else %>
+      <span class="mt-2">
+        Scheduled For: <%= l tweet.publish_at, format: :short %>
+      </span>
+      <% end %>
+    <div class="d-flex justify-content-end mt-2">
+      <% if tweet.published? %>
+        <%= link_to "View Tweet", "https://twitter.com/#{tweet.tweet_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "btn btn-outline-info"%>
+      <% else %>
+        <%= link_to "Edit Tweet", edit_tweet_path(tweet), class: "btn btn-outline-secondary mx-2"%>
+      <% end %>
+    </div>
+  </div>
+</div>
