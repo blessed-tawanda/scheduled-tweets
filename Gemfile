@@ -9,8 +9,8 @@ gem "rails", "~> 7.0.6"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# Use pg as the database for Active Record
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -75,3 +75,5 @@ gem "omniauth-twitter", "~> 1.4"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "twitter", "~> 8.0"
+
+gem "sidekiq", "~> 7.1"
